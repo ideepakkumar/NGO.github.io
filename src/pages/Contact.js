@@ -21,7 +21,7 @@ const Contact = () => {
     e.preventDefault();
     
     // EmailJS configuration - Replace with your actual values
-    const serviceID = 'YOUR_SERVICE_ID'; // Replace with your EmailJS service ID
+    const serviceID = 'service_7qxzpso'; // Replace with your EmailJS service ID
     const templateID = 'YOUR_TEMPLATE_ID'; // Replace with your EmailJS template ID
     const publicKey = 'YOUR_PUBLIC_KEY'; // Replace with your EmailJS public key
     
@@ -138,31 +138,31 @@ const Contact = () => {
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                         Full Name *
                       </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-300"
-                        placeholder="Your full name"
-                      />
+                        <input
+                          type="text"
+                          id="name"
+                          name="from_name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          required
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-300"
+                          placeholder="Your full name"
+                        />
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                         Email Address *
                       </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-300"
-                        placeholder="your.email@example.com"
-                      />
+                        <input
+                          type="email"
+                          id="email"
+                          name="from_email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-300"
+                          placeholder="your.email@example.com"
+                        />
                     </div>
                   </div>
 
