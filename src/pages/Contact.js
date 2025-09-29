@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -18,15 +19,29 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
-    alert('Thank you for your message! We will get back to you soon.');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: ''
-    });
+    
+    // EmailJS configuration - Replace with your actual values
+    const serviceID = 'YOUR_SERVICE_ID'; // Replace with your EmailJS service ID
+    const templateID = 'YOUR_TEMPLATE_ID'; // Replace with your EmailJS template ID
+    const publicKey = 'YOUR_PUBLIC_KEY'; // Replace with your EmailJS public key
+    
+    // Send email using EmailJS
+    emailjs.sendForm(serviceID, templateID, e.target, publicKey)
+      .then((result) => {
+        console.log('Email sent successfully:', result.text);
+        alert('Thank you for your message! We will get back to you soon.');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: ''
+        });
+      })
+      .catch((error) => {
+        console.error('Error sending email:', error);
+        alert('Sorry, there was an error sending your message. Please try again or contact us directly.');
+      });
   };
 
   return (
@@ -117,7 +132,7 @@ const Contact = () => {
               {/* Contact Form */}
               <div className="bg-white rounded-2xl shadow-xl p-8">
                 <h2 className="text-3xl font-bold text-gray-800 mb-6">Send us a Message</h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Razorpay from 'razorpay';
 
 const Donate = () => {
   const [selectedAmount, setSelectedAmount] = useState('');
@@ -32,11 +33,42 @@ const Donate = () => {
 
   const handleDonate = () => {
     const amount = selectedAmount || customAmount;
-    if (amount) {
-      alert(`Thank you for your donation of ₹${amount}! You will be redirected to the payment gateway.`);
-    } else {
+    if (!amount) {
       alert('Please select or enter a donation amount.');
+      return;
     }
+
+    // Razorpay configuration - Replace with your actual values
+    const razorpayKeyId = 'YOUR_RAZORPAY_KEY_ID'; // Replace with your Razorpay Key ID
+    
+    const options = {
+      key: razorpayKeyId,
+      amount: amount * 100, // Amount in paise (multiply by 100)
+      currency: 'INR',
+      name: 'Shyam Narayan Seva Sansthan',
+      description: `Donation for ${selectedCause}`,
+      image: '/logo.png', // Your NGO logo
+      handler: function (response) {
+        alert(`Payment successful! Payment ID: ${response.razorpay_payment_id}`);
+        // Here you can send the payment details to your backend
+        console.log('Payment successful:', response);
+      },
+      prefill: {
+        name: 'Donor Name',
+        email: 'donor@example.com',
+        contact: '9999999999'
+      },
+      notes: {
+        cause: selectedCause,
+        amount: amount
+      },
+      theme: {
+        color: '#f97316' // Orange color matching your theme
+      }
+    };
+
+    const rzp = new window.Razorpay(options);
+    rzp.open();
   };
 
   return (
