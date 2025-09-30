@@ -16,6 +16,16 @@ const Gallery = () => {
         },
         { 
           id: 2, 
+          title: "Medical Camp", 
+          category: "healthcare", 
+          description: "Free health checkups and treatment",
+          image: "/camp.png",
+          branded: true,
+          type: "subcategory",
+          subcategory: "medical_camp"
+        },
+        { 
+          id: 3, 
           title: "Education Under Trees", 
           category: "education", 
           description: "Outdoor classroom sessions in rural areas",
@@ -23,7 +33,7 @@ const Gallery = () => {
           branded: true
         },
         { 
-          id: 3, 
+          id: 4, 
           title: "Community Development", 
           category: "community", 
           description: "Building infrastructure and empowering villages",
@@ -179,7 +189,7 @@ const Gallery = () => {
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                     </svg>
-                    <span>Back to Healthcare</span>
+                    <span>Back to {categories.find(cat => cat.key === activeCategory)?.label || 'Healthcare'}</span>
                   </button>
                 </div>
               )}
@@ -260,20 +270,16 @@ const Gallery = () => {
                             )}
                           </div>
                         </div>
-                        {/* Hover Effect */}
-                        <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
-                          <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            {item.type === 'subcategory' ? (
+                        {/* Hover Effect - Only show for subcategory items */}
+                        {item.type === 'subcategory' && (
+                          <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                               <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                               </svg>
-                            ) : (
-                              <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                              </svg>
-                            )}
+                            </div>
                           </div>
-                        </div>
+                        )}
                       </div>
                     </div>
                   ))}
