@@ -202,7 +202,7 @@ const Gallery = () => {
                             <div className="h-48 relative overflow-hidden">
                               <img
                                 src={image.image}
-                                alt="Camp image"
+                                alt="Medical camp activity"
                                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                               />
                             </div>
