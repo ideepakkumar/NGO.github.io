@@ -62,33 +62,23 @@ const Gallery = () => {
           images: [
             {
               id: 7,
-              title: "Medical Camp Overview",
-              image: "/camp1.png",
-              description: "Free health checkups and treatment"
+              image: "/camp1.png"
             },
             {
               id: 8,
-              title: "Camp Setup",
-              image: "/camp2.png",
-              description: "Medical camp setup and organization"
+              image: "/camp2.png"
             },
             {
               id: 9,
-              title: "Blood Collection",
-              image: "/camp3.png",
-              description: "Blood collection and testing procedures"
+              image: "/camp3.png"
             },
             {
               id: 10,
-              title: "Patient Care",
-              image: "/camp4.png",
-              description: "Providing medical care to patients"
+              image: "/camp4.png"
             },
             {
               id: 11,
-              title: "Sponsor Banner",
-              image: "/Sponser_banner.png",
-              description: "Camp organized in partnership with Leuze Electronic Pvt Ltd"
+              image: "/Sponser_banner.png"
             },
           ]
         }
@@ -212,16 +202,9 @@ const Gallery = () => {
                             <div className="h-48 relative overflow-hidden">
                               <img
                                 src={image.image}
-                                alt={image.title}
+                                alt="Camp image"
                                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                               />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                              <div className="absolute bottom-3 left-3 right-3">
-                                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-2">
-                                  <h4 className="text-sm font-bold text-gray-800 mb-1">{image.title}</h4>
-                                  <p className="text-xs text-gray-600">{image.description}</p>
-                                </div>
-                              </div>
                             </div>
                           </div>
                         ))}
