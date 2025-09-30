@@ -7,17 +7,14 @@ const Contact = () => {
     email: '',
     phone: '',
     subject: '',
-    message: ''
+    message: '',
+    time: new Date().toLocaleString()
   });
 
   const handleChange = (e) => {
-    const fieldName = e.target.name === 'from_name' ? 'name' : 
-                     e.target.name === 'from_email' ? 'email' : 
-                     e.target.name;
-    
     setFormData({
       ...formData,
-      [fieldName]: e.target.value
+      [e.target.name]: e.target.value
     });
   };
 
@@ -39,7 +36,8 @@ const Contact = () => {
           email: '',
           phone: '',
           subject: '',
-          message: ''
+          message: '',
+          time: new Date().toLocaleString()
         });
       })
       .catch((error) => {
@@ -145,7 +143,7 @@ const Contact = () => {
                         <input
                           type="text"
                           id="name"
-                          name="from_name"
+                          name="name"
                           value={formData.name}
                           onChange={handleChange}
                           required
@@ -160,7 +158,7 @@ const Contact = () => {
                         <input
                           type="email"
                           id="email"
-                          name="from_email"
+                          name="email"
                           value={formData.email}
                           onChange={handleChange}
                           required
@@ -222,6 +220,13 @@ const Contact = () => {
                       placeholder="Tell us how we can help you..."
                     />
                   </div>
+
+                  {/* Hidden time field */}
+                  <input
+                    type="hidden"
+                    name="time"
+                    value={formData.time}
+                  />
 
                   <button
                     type="submit"
