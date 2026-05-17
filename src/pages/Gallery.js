@@ -94,7 +94,7 @@ const Gallery = () => {
           },
           {
             id: 12,
-            image: "/camp5.png"
+            image: "/camp5.jpeg"
           },
         ]
       }
