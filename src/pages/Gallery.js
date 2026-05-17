@@ -26,11 +26,13 @@ const Gallery = () => {
         },
         { 
           id: 3, 
-          title: "Education Under Trees", 
+          title: "Education Camp 1", 
           category: "education", 
-          description: "Outdoor classroom sessions in rural areas",
-          image: "/education_program.png",
-          branded: true
+          description: "Education camp activities and sessions for underprivileged children",
+          image: "/Education_camp_1_1.jpeg",
+          branded: true,
+          type: "subcategory",
+          subcategory: "education_camp_1"
         },
         { 
           id: 4, 
@@ -96,12 +98,30 @@ const Gallery = () => {
     education: [
       { 
         id: 2, 
-        title: "Education Under Trees", 
+        title: "Education Camp 1", 
         category: "education", 
-        description: "Outdoor classroom sessions in rural areas",
-        image: "/education_program.png",
-        branded: true
+        description: "Education camp activities and sessions for underprivileged children",
+        image: "/Education_camp_1_1.jpeg",
+        branded: true,
+        type: "subcategory",
+        subcategory: "education_camp_1"
       },
+    ],
+    education_camp_1: [
+      {
+        id: "edu_camp1",
+        title: "Camp 1 - Education Drive",
+        category: "education",
+        description: "Education camp organized to provide learning opportunities to underprivileged children",
+        type: "camp_section",
+        images: [
+          { id: 101, image: "/Education_camp_1_1.jpeg" },
+          { id: 102, image: "/Education_camp_1_2.jpeg" },
+          { id: 103, image: "/Education_camp_1_3.jpeg" },
+          { id: 104, image: "/Education_camp_1_4.jpeg" },
+          { id: 105, image: "/Education_camp_1_5.jpeg" }
+        ]
+      }
     ],
     community: [
       { 
