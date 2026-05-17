@@ -94,7 +94,7 @@ const Gallery = () => {
           },
           {
             id: 12,
-            image: "/camp5.jpeg"
+            image: "/camp5.png"
           },
         ]
       }
@@ -187,8 +187,8 @@ const Gallery = () => {
                   setActiveSubcategory(null); // Reset subcategory when switching categories
                 }}
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${activeCategory === category.key
-                    ? 'bg-teal-600 text-white shadow-lg'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? 'bg-teal-600 text-white shadow-lg'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
               >
                 <span className="mr-2">{category.icon}</span>
@@ -252,8 +252,8 @@ const Gallery = () => {
                 <div
                   key={item.id}
                   className={`bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 group ${item.type === 'subcategory'
-                      ? 'hover:shadow-2xl cursor-pointer border-2 border-transparent hover:border-teal-300'
-                      : 'hover:shadow-2xl'
+                    ? 'hover:shadow-2xl cursor-pointer border-2 border-transparent hover:border-teal-300'
+                    : 'hover:shadow-2xl'
                     }`}
                   onClick={() => item.type === 'subcategory' && handleItemClick(item)}
                 >
@@ -271,8 +271,8 @@ const Gallery = () => {
                         <p className="text-sm text-gray-600 mb-2">{item.description}</p>
                         <div className="flex items-center justify-between">
                           <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${item.category === 'healthcare' ? 'bg-teal-100 text-teal-800' :
-                              item.category === 'education' ? 'bg-orange-100 text-orange-800' :
-                                'bg-green-100 text-green-800'
+                            item.category === 'education' ? 'bg-orange-100 text-orange-800' :
+                              'bg-green-100 text-green-800'
                             }`}>
                             {item.category.charAt(0).toUpperCase() + item.category.slice(1)}
                           </span>
